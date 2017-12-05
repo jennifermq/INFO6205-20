@@ -5,12 +5,31 @@ import java.util.ArrayList;
 public class Generation {
 	public Generation() {
 		generation = new ArrayList<Schedule> ();
+		//this.generationID = id;
+		//this.scheduleNumber = count;
+	}
+	
+	public void initGeneration() {
+		//
+		//TODO
 	}
 	
 	public Generation crossover() {
 		Generation next = new Generation();
 		//TODO
 		return next;
+	}
+	
+	public int getScheduleNumber() {
+		return this.scheduleNumber;
+	}
+	
+	public void setScheduleNumber(int n) {
+		this.scheduleNumber = n;
+	}
+	
+	public void setGenerationID(int n) {
+		this.generationID = n;
 	}
 
 	public ArrayList<Schedule> findTopTenPercent() {

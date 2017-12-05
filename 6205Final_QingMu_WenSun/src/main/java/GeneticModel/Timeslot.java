@@ -1,17 +1,35 @@
 package GeneticModel;
 
+import java.util.ArrayList;
+
 public class Timeslot {
-	public Timeslot(int start, int end, CourseClass courseClass, Classroom room) {
+	public Timeslot(int start, int end, Classroom room) {
 		this.start = start;
 		this.end = end;
-		this.courseClass = courseClass;
 		this.classroom = room;
-		
+		this.classList = new ArrayList<CourseClass>();
+	}
+	
+	
+	public ArrayList<CourseClass> getCourseClassList() {
+		return this.classList;
+	}
+	
+	public Classroom getClassroom() {
+		return this.classroom;
+	}
+	
+	public void addCourseClass(CourseClass c) {
+		classList.add(c);
+	}
+	
+	public int getCourseCount() {
+		return classList.size();
 	}
 	
 	private int start; //start time of the time slot
 	private int end; //end time of the time slot
-	private CourseClass courseClass;
+	private ArrayList<CourseClass> classList;
 	private Classroom classroom;
 	//private int day; //day of the week of the timeslot(1-5)
 	

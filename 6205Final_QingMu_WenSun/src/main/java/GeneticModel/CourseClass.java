@@ -7,6 +7,10 @@ public class CourseClass {
 		this.duration = duration;
 	}
 	
+	public int getStudentNumber() {
+		return this.studentNumber;
+	}
+	
 	private int classID;
 	private int studentNumber;
 	private int duration;
