@@ -62,5 +62,6 @@ public class Schedule {
 	private ArrayList<Timeslot> schedule;
 	private int crossoverPoints;
 	private int mutationProbability;
+	private double fitness;
 	private HashMap<CourseClass,Timeslot> hash; //key:CourseClass;value:Timeslot
 }

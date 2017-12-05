@@ -1,5 +1,6 @@
 package Configuration;
 
+import GeneticModel.Chromosome;
 import GeneticModel.Classroom;
 import GeneticModel.CourseClass;
 import GeneticModel.Generation;
@@ -32,6 +33,9 @@ public class Configuration {
 		school.addClassroom(r1);
 		school.addClassroom(r2);
 		school.addClassroom(r3);
+		
+		Chromosome chromosome = Chromosome.getInstance();
+		chromosome.setList();
 		
 		Generation g0 = new Generation();
 		g0.setGenerationID(0);
