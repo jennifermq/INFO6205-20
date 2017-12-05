@@ -1,2 +1,3 @@
+# INFO6205-20
 # QingMu-WenSun_FinalProjectOfAlgorithm
-Assignments and Projects of Data Structure and Algorithm Course at Northeastern University
+Final Project of Data Structure and Algorithm Course at Northeastern University on genetic algorithm
