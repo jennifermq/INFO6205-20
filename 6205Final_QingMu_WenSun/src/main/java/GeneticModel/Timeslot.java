@@ -7,16 +7,12 @@ public class Timeslot {
 		this.id = id;
 		this.start = start;
 		this.day = day;
-		//this.end = end;
 		this.classroom = room;
+		//this.end = end;
 		//this.classList = new ArrayList<CourseClass>();
 	}
 	
-	/*
-	public ArrayList<CourseClass> getCourseClassList() {
-		return this.classList;
-	}
-	*/
+	
 	public Classroom getClassroom() {
 		return this.classroom;
 	}
@@ -31,7 +27,12 @@ public class Timeslot {
 	public int getID() {
 		return this.id;
 	}
+	
 	/*
+	public ArrayList<CourseClass> getCourseClassList() {
+		return this.classList;
+	}
+	
 	public void addCourseClass(CourseClass c) {
 		classList.add(c);
 	}
@@ -41,12 +42,13 @@ public class Timeslot {
 	}
 	*/
 	
-	private int start; //start time of the time slot
-	//private int end; //end time of the time slot
-	//private ArrayList<CourseClass> classList;
-	private Classroom classroom;
-	private int day; //day of the week of the timeslot(1-5)
 	private int id;
+	private int day; //day of the week of the timeslot(1-5)
+	private int start; //start time of the time slot
+	private Classroom classroom;
+	
+		//private int end; //end time of the time slot
+		//private ArrayList<CourseClass> classList;
 	
 	
 }
