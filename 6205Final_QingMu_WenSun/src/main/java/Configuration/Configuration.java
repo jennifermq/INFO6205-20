@@ -20,18 +20,18 @@ public class Configuration {
 	public static Generation configureFirstGeneration() {
 		School school = School.getInstance();
 		
-		CourseClass c1 = new CourseClass(1,50,2);
-		CourseClass c2 = new CourseClass(2,80,3);
-		CourseClass c3 = new CourseClass(3,100,3);
-		CourseClass c4 = new CourseClass(4,60,2);
+		CourseClass c1 = new CourseClass(1,"Algorithm",50,2);
+		CourseClass c2 = new CourseClass(2,"Database",80,3);
+		CourseClass c3 = new CourseClass(3,"Object-Oriented Design",100,3);
+		CourseClass c4 = new CourseClass(4,"Big Data",60,2);
 		school.addCourseClass(c1);
 		school.addCourseClass(c2);
 		school.addCourseClass(c3);
 		school.addCourseClass(c4);
 		
 		Classroom r1 = new Classroom(1,60);
-		Classroom r2 = new Classroom(1,80);
-		Classroom r3 = new Classroom(1,120);
+		Classroom r2 = new Classroom(2,80);
+		Classroom r3 = new Classroom(3,120);
 		school.addClassroom(r1);
 		school.addClassroom(r2);
 		school.addClassroom(r3);

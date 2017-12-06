@@ -135,9 +135,24 @@ public class Schedule {
 			}
 			//classes do not overlap each other in the same classroom
 		}
-		fitness =  score/highest;
+		fitness =  score/highest;;
 		if(score == highest) {
-			//TODO output the result
+			//print the result
+			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
+				String day = "";
+				switch(e.getValue().getDay()) {
+					case(1): day="Monday";
+					case(2): day="Tuesday";
+					case(3): day="Wednesday";
+					case(4): day="Thursday";
+					case(5): day="Friday";
+				}
+				int time1 = e.getValue().getStart();
+				int time2 = e.getValue().getStart() + e.getKey().getDuration();
+				System.out.println("Course Class: " + e.getKey().toString());
+				System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
+				System.out.println("    Location: " + "Room " + e.getValue().getClassroom());
+			}
 			System.exit(0);
 		}
 		//return score/highest;
