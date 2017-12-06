@@ -1,19 +1,21 @@
 package Configuration;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import GeneticModel.Chromosome;
 import GeneticModel.Classroom;
 import GeneticModel.CourseClass;
 import GeneticModel.Generation;
+import GeneticModel.Schedule;
 import GeneticModel.School;
+import GeneticModel.Timeslot;
 
 public class Configuration {
-//在第一代中随机产生一个schedule的时候，相当于是遍历每一门课然后给这门课分配duration个连续的slot。
+	//在第一代中随机产生一个schedule的时候，相当于是遍历每一门课然后给这门课分配duration个连续的slot。
 	public Configuration() {
 		
 	}
-	
-	
-	
 	
 	public static Generation configureFirstGeneration() {
 		School school = School.getInstance();
@@ -37,11 +39,18 @@ public class Configuration {
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
 		
-		Generation g0 = new Generation();
-		g0.setGenerationID(0);
-		g0.setScheduleNumber(100);
+		Generation g0 = new Generation(100);
+		//g0.setGenerationID(0);
 		for(int i=0; i<g0.getScheduleNumber(); i++) {
-			
+			HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
+			ArrayList<CourseClass> classList = school.getClassList();
+			for(CourseClass course: classList) {
+				int randSlot = (int) Math.random()*classList.size();
+				hash.put(course, Chromosome.getInstance().getList().get(randSlot));
+			}
+			double mutationProbability = 0.2;
+			Schedule schedule = new Schedule(hash,100,mutationProbability);
+			g0.getGeneration().add(schedule);
 		}
 		return g0;
 	}

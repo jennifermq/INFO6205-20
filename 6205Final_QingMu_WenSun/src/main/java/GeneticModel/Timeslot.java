@@ -3,7 +3,8 @@ package GeneticModel;
 import java.util.ArrayList;
 
 public class Timeslot {
-	public Timeslot(int day, int start, Classroom room) {
+	public Timeslot(int id, int day, int start, Classroom room) {
+		this.id = id;
 		this.start = start;
 		this.day = day;
 		//this.end = end;
@@ -18,6 +19,17 @@ public class Timeslot {
 	*/
 	public Classroom getClassroom() {
 		return this.classroom;
+	}
+	
+	public int getDay() {
+		return this.day;
+	}
+	
+	public int getStart() {
+		return this.start;
+	}
+	public int getID() {
+		return this.id;
 	}
 	/*
 	public void addCourseClass(CourseClass c) {
@@ -34,6 +46,7 @@ public class Timeslot {
 	//private ArrayList<CourseClass> classList;
 	private Classroom classroom;
 	private int day; //day of the week of the timeslot(1-5)
+	private int id;
 	
 	
 }
