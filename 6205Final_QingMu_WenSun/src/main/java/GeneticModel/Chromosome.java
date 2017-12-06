@@ -27,7 +27,7 @@ public class Chromosome {
 		}
 	}
 	
-	public ArrayList<Timeslot> getSlotList() {
+	public ArrayList<Timeslot> getList() {
 		return this.list;
 	}
 	

@@ -25,6 +25,19 @@ public class Schedule {
 	}
 	*/
 	
+	public int getCrossoverPoints() {
+		return this.crossoverPoints;
+	}
+	
+	public double getMutationProbability() {
+		// TODO Auto-generated method stub
+		return this.mutationProbability;
+	}
+	
+	public HashMap<CourseClass,Timeslot> getHash() {
+		return this.hash;
+	}
+	
 	public void fitness() {
 		double score = 0;
 		double highest = 0;
@@ -52,7 +65,7 @@ public class Schedule {
 			}
 			*/
 			for(int i=slot.getID(); i<=slot.getID() + course.getDuration(); i++) {
-				if(chromosome.getSlotList().get(i).getDay() != day) {
+				if(chromosome.getList().get(i).getDay() != day) {
 					samedayflag = 0;
 					break;
 				}
@@ -87,7 +100,7 @@ public class Schedule {
 						ArrayList<Timeslot> list2 = new ArrayList<Timeslot>();
 						
 						for(int i=id1; i<=id1+d1; i++) {
-							Timeslot temp = Chromosome.getInstance().getSlotList().get(i);
+							Timeslot temp = Chromosome.getInstance().getList().get(i);
 							if(temp != null) {
 								list1.add(temp);
 							}
@@ -97,7 +110,7 @@ public class Schedule {
 						}
 						
 						for(int i=id2; i<=id2+d2; i++) {
-							Timeslot temp = Chromosome.getInstance().getSlotList().get(i);
+							Timeslot temp = Chromosome.getInstance().getList().get(i);
 							if(temp != null) {
 								list2.add(temp);
 							}
@@ -108,7 +121,7 @@ public class Schedule {
 						
 						for(int i=0; i<list1.size(); i++) {
 							for(int j=0; j<list2.size(); j++) {
-								if(chromosome.getSlotList().get(i).equals(chromosome.getSlotList().get(j))) {
+								if(chromosome.getList().get(i).equals(chromosome.getList().get(j))) {
 									overlapflag = 0;
 									break;
 								}
@@ -123,6 +136,10 @@ public class Schedule {
 			//classes do not overlap each other in the same classroom
 		}
 		fitness =  score/highest;
+		if(score == highest) {
+			//TODO output the result
+			System.exit(0);
+		}
 		//return score/highest;
 	}
 	
@@ -160,4 +177,7 @@ public class Schedule {
 	private double mutationProbability;
 	private double fitness;
 	private HashMap<CourseClass,Timeslot> hash; //key:CourseClass;value:Timeslot
+	
+	
+	
 }
