@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Generation {
 	public Generation(int number) {
@@ -63,12 +64,21 @@ public class Generation {
         
         private void mutate(HashMap<CourseClass,Timeslot> kid,double prob)
         {
-            Chromosome chro = Chromosome.getInstance();
+        	Chromosome chro = Chromosome.getInstance();
             if(Math.random()<prob)
             {
                 int mut = (int)Math.random()*(kid.size());
                 int val = (int)Math.random()*(chro.getList().size());
-                kid.put(mut,chro.getList().get(val));
+                int i=0;
+                for(Entry<CourseClass,Timeslot> vo : kid.entrySet()){ 
+                    if(i==mut)
+                    {
+                        kid.put(vo.getKey(),chro.getList().get(val));
+                        break;
+                    }   
+                    else
+                        i++;
+                }
             }
         }
 
@@ -90,7 +100,9 @@ public class Generation {
         return scheduleNumber;
     }
     
-    
+    public int getGenerationID() {
+    	return this.generationID;
+    }
 
 	private ArrayList<Schedule> generation;
 	private int generationID;
@@ -99,12 +111,12 @@ public class Generation {
 }
 
 class FitnessComparator implements Comparator<Schedule>{
-            public int compare(Schedule s1, Schedule s2) {
-                if(s1.fitness()>s2.fitness())
-                    return 1;
-                else if(s1.fitness()==s2.fitness())
-                    return 0;
-                else
-                    return -1;
-            }           
-        }
+    public int compare(Schedule s1, Schedule s2) {
+        if(s1.getFitness()>s2.getFitness())
+            return 1;
+        else if(s1.getFitness()==s2.getFitness())
+            return 0;
+        else
+            return -1;
+    }           
+}

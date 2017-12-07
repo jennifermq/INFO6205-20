@@ -2,6 +2,7 @@ package Configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import GeneticModel.Chromosome;
 import GeneticModel.Classroom;
@@ -31,25 +32,46 @@ public class Configuration {
 		
 		Classroom r1 = new Classroom(1,60);
 		Classroom r2 = new Classroom(2,80);
-		Classroom r3 = new Classroom(3,120);
+		//Classroom r3 = new Classroom(3,120);
 		school.addClassroom(r1);
 		school.addClassroom(r2);
-		school.addClassroom(r3);
+		//school.addClassroom(r3);
 		
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
+                
 		
-		Generation g0 = new Generation(100);
+		Generation g0 = new Generation(10);
 		//g0.setGenerationID(0);
 		for(int i=0; i<g0.getScheduleNumber(); i++) {
 			HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
 			ArrayList<CourseClass> classList = school.getClassList();
 			for(CourseClass course: classList) {
-				int randSlot = (int) Math.random()*classList.size();
-				hash.put(course, Chromosome.getInstance().getList().get(randSlot));
+				int randSlot = (int) (Math.random()*chromosome.getList().size());
+				hash.put(course, chromosome.getList().get(randSlot));
 			}
 			double mutationProbability = 0.2;
-			Schedule schedule = new Schedule(hash,100,mutationProbability);
+			Schedule schedule = new Schedule(hash,10,mutationProbability);
+			System.out.println(i + ": " + schedule.getFitness());
+			
+                        /*
+			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
+				String day = "";
+				switch(e.getValue().getDay()) {
+					case(1): day="Monday";
+					case(2): day="Tuesday";
+					case(3): day="Wednesday";
+					case(4): day="Thursday";
+					case(5): day="Friday";
+				}
+				int time1 = e.getValue().getStart();
+				int time2 = e.getValue().getStart() + e.getKey().getDuration();
+				System.out.println("Course Class: " + e.getKey().toString());
+				System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
+				System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
+			}
+			*/
+			
 			g0.getGeneration().add(schedule);
 		}
 		return g0;

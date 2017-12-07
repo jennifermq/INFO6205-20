@@ -43,7 +43,7 @@ public class Schedule {
 		double highest = 0;
 		Chromosome chromosome = Chromosome.getInstance();
 		for(Entry<CourseClass, Timeslot> entry : hash.entrySet()){
-			highest += 2;
+			highest += 3;
 			CourseClass course = entry.getKey();
 			Timeslot slot = entry.getValue();
 			
@@ -55,15 +55,6 @@ public class Schedule {
 			int start = slot.getStart();
 			int samedayflag = 1;
 			int day = slot.getDay();
-			/*
-			for(int i=1; i<course.getDuration(); i++) {
-				int time = start + i;
-				if(time>21) {
-					samedayflag = 0;
-					break;
-				}
-			}
-			*/
 			for(int i=slot.getID(); i<=slot.getID() + course.getDuration(); i++) {
 				if(chromosome.getList().get(i).getDay() != day) {
 					samedayflag = 0;
@@ -100,23 +91,20 @@ public class Schedule {
 						ArrayList<Timeslot> list2 = new ArrayList<Timeslot>();
 						
 						for(int i=id1; i<=id1+d1; i++) {
-							Timeslot temp = Chromosome.getInstance().getList().get(i);
-							if(temp != null) {
-								list1.add(temp);
-							}
-							else {
-								break;
-							}
+                                                    if(id1+d1 <= Chromosome.getInstance().getList().size()-1) {
+                                                        Timeslot temp = Chromosome.getInstance().getList().get(i);
+                                                        list2.add(temp);
+                                                    }
 						}
 						
 						for(int i=id2; i<=id2+d2; i++) {
-							Timeslot temp = Chromosome.getInstance().getList().get(i);
-							if(temp != null) {
-								list2.add(temp);
-							}
-							else {
-								break;
-							}
+                                                    if(id2+d2 <= Chromosome.getInstance().getList().size()-1) {
+                                                        Timeslot temp = Chromosome.getInstance().getList().get(i);
+                                                        list2.add(temp);
+                                                    }
+                                                    else {
+                                                        break;
+                                                    }
 						}
 						
 						for(int i=0; i<list1.size(); i++) {
@@ -135,7 +123,7 @@ public class Schedule {
 			}
 			//classes do not overlap each other in the same classroom
 		}
-		fitness =  score/highest;;
+		fitness =  score/highest;
 		if(score == highest) {
 			//print the result
 			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
@@ -151,11 +139,10 @@ public class Schedule {
 				int time2 = e.getValue().getStart() + e.getKey().getDuration();
 				System.out.println("Course Class: " + e.getKey().toString());
 				System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
-				System.out.println("    Location: " + "Room " + e.getValue().getClassroom());
+				System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
 			}
 			System.exit(0);
 		}
-		//return score/highest;
 	}
 	
 	/*
@@ -192,6 +179,10 @@ public class Schedule {
 	private double mutationProbability;
 	private double fitness;
 	private HashMap<CourseClass,Timeslot> hash; //key:CourseClass;value:Timeslot
+	public double getFitness() {
+		// TODO Auto-generated method stub
+		return this.fitness;
+	}
 	
 	
 	
