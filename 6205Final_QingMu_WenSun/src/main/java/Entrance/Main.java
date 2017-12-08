@@ -2,6 +2,7 @@ package Entrance;
 
 import GeneticModel.Generation;
 import Configuration.Configuration;
+import GeneticModel.School;
 
 public class Main {
 	public static void main( String[] args )
@@ -10,9 +11,10 @@ public class Main {
         //System.out.println(g0.getGeneration().get(10).getFitness());
         Generation previousGeneration = g0;
         
-        while(true) {
-        	System.out.println("Generation: " + previousGeneration.getGenerationID());
+        while(School.findflag == 0) {
         	Generation nextGeneration = previousGeneration.crossover();
+                System.out.println("Generation: " + nextGeneration.getGenerationID());
+                System.out.println("    Average: " + nextGeneration.getAverage());
         	previousGeneration = nextGeneration;
         }
         
