@@ -32,14 +32,14 @@ public class Configuration {
 		
 		Classroom r1 = new Classroom(1,60);
 		Classroom r2 = new Classroom(2,80);
-		//Classroom r3 = new Classroom(3,120);
+		Classroom r3 = new Classroom(3,120);
 		school.addClassroom(r1);
 		school.addClassroom(r2);
-		//school.addClassroom(r3);
+		school.addClassroom(r3);
 		
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
-                
+           
 		
 		Generation g0 = new Generation(10);
 		//g0.setGenerationID(0);
@@ -52,25 +52,29 @@ public class Configuration {
 			}
 			double mutationProbability = 0.2;
 			Schedule schedule = new Schedule(hash,10,mutationProbability);
-			System.out.println(i + ": " + schedule.getFitness());
+			//System.out.println(i + ": " + schedule.getFitness());
 			
-                        /*
+                        
 			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
 				String day = "";
 				switch(e.getValue().getDay()) {
-					case(1): day="Monday";
-					case(2): day="Tuesday";
-					case(3): day="Wednesday";
-					case(4): day="Thursday";
-					case(5): day="Friday";
+					case 1: day="Monday"; break;
+					case 2: day="Tuesday";break;
+					case 3: day="Wednesday";break;
+					case 4: day="Thursday";break;
+					case 5: day="Friday";break;
 				}
 				int time1 = e.getValue().getStart();
 				int time2 = e.getValue().getStart() + e.getKey().getDuration();
+                                /*
 				System.out.println("Course Class: " + e.getKey().toString());
 				System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
 				System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
+                                System.out.println("Student Count: " + e.getKey().getStudentNumber());
+                                System.out.println("Room Capacity: " + e.getValue().getClassroom().getSeats());
+*/
 			}
-			*/
+			//System.out.println();
 			
 			g0.getGeneration().add(schedule);
 		}
