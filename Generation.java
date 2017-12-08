@@ -22,25 +22,24 @@ public class Generation {
             //20 kids to be born per pair
             while(next.getGeneration().size()<next.getScheduleNumber())
             {
-                int f = (int)(Math.random()*scheduleNumber);
-                int m = (int)(Math.random()*scheduleNumber);
+                int f = (int)(Math.random()*parents.size());
+                int m = (int)(Math.random()*parents.size());
                 while(f==m)
                 {
-                    m=(int)(Math.random()*scheduleNumber);
+                    m=(int)(Math.random()*parents.size());
                 }
-                next.getGeneration().add(crossover(f,m));
-                next.getGeneration().add(crossover(m,f));
+                next.getGeneration().add(crossover(parents,f,m));
+                next.getGeneration().add(crossover(parents,m,f));
             }
             return next;
 	}
         
-        private Schedule crossover(int f,int m)
+        private Schedule crossover(ArrayList<Schedule> parents,int f,int m)
         {
             School school = School.getInstance();
-            Schedule father = generation.get(f);
-            Schedule mother = generation.get(m);
+            Schedule father = parents.get(f);
+            Schedule mother = parents.get(m);
             
-            int breakpointNum = father.getCrossoverPoints();
             
             int b1 = (int)(Math.random()*(father.getHash().size()-1));
             int b2 = (int)(Math.random()*(father.getHash().size()-1));
@@ -64,7 +63,7 @@ public class Generation {
         
         private void mutate(HashMap<CourseClass,Timeslot> kid,double prob)
         {
-            Chromosome chro = Chromosome.getInstance();
+        	Chromosome chro = Chromosome.getInstance();
             if(Math.random()<prob)
             {
                 int mut = (int)Math.random()*(kid.size());
@@ -100,7 +99,9 @@ public class Generation {
         return scheduleNumber;
     }
     
-    
+    public int getGenerationID() {
+    	return this.generationID;
+    }
 
 	private ArrayList<Schedule> generation;
 	private int generationID;
@@ -109,12 +110,12 @@ public class Generation {
 }
 
 class FitnessComparator implements Comparator<Schedule>{
-            public int compare(Schedule s1, Schedule s2) {
-                if(s1.getFitness()>s2.getFitness())
-                    return 1;
-                else if(s1.getFitness()==s2.getFitness())
-                    return 0;
-                else
-                    return -1;
-            }           
-        }
+    public int compare(Schedule s1, Schedule s2) {
+        if(s1.getFitness()>s2.getFitness())
+            return 1;
+        else if(s1.getFitness()==s2.getFitness())
+            return 0;
+        else
+            return -1;
+    }           
+}
