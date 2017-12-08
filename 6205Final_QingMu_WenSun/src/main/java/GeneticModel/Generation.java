@@ -12,40 +12,46 @@ public class Generation {
             this.scheduleNumber = number;
             generationID = count;
             count++;
-                
 	}
 
 	public Generation crossover() {
-		Generation next = new Generation(scheduleNumber);
-		//TODO
+            Generation next = new Generation(scheduleNumber);
+            System.out.println("Crossover: " + next.getGenerationID());
             ArrayList<Schedule> parents = this.findTopTenPercent();
             //20 kids to be born per pair
             while(next.getGeneration().size()<next.getScheduleNumber())
             {
-                int f = (int)(Math.random()*scheduleNumber);
-                int m = (int)(Math.random()*scheduleNumber);
+                int f = (int)(Math.random()*parents.size());
+                int m = (int)(Math.random()*parents.size());
                 while(f==m)
                 {
-                    m=(int)(Math.random()*scheduleNumber);
+                    m=(int)(Math.random()*parents.size());
                 }
-                next.getGeneration().add(crossover(f,m));
-                next.getGeneration().add(crossover(m,f));
+                next.getGeneration().add(crossover(parents,f,m));
+                next.getGeneration().add(crossover(parents,m,f));
             }
             return next;
 	}
         
-        private Schedule crossover(int f,int m)
+        private Schedule crossover(ArrayList<Schedule> parents,int f,int m)
         {
             School school = School.getInstance();
-            Schedule father = generation.get(f);
-            Schedule mother = generation.get(m);
+            Schedule father = parents.get(f);
+            //printS(father);
+            Schedule mother = parents.get(m);
+            //printS(mother);
             
-            int breakpointNum = father.getCrossoverPoints();
+            int b1 = (int)(Math.random()*father.getHash().size());
+            int b2 = (int)(Math.random()*father.getHash().size());
+            while(b2==b1)
+                b2 = (int)(Math.random()*father.getHash().size());
             
-            int b1 = (int)(Math.random()*(father.getHash().size()-1));
-            int b2 = (int)(Math.random()*(father.getHash().size()-1));
-            while(b2<=b1)
-                b2 = (int)(Math.random()*(father.getHash().size()-1));
+            if(b2<b1)
+            {
+                b1=b1+b2;
+                b2=b1-b2;
+                b1=b1-b2;
+            }
             
             HashMap<CourseClass,Timeslot> kidHash = new HashMap<CourseClass,Timeslot>();
             int i = 0;
@@ -58,17 +64,40 @@ public class Generation {
 
             mutate(kidHash,(father.getMutationProbability()+mother.getMutationProbability())/2);
             Schedule kid = new Schedule(kidHash,father.getCrossoverPoints(),(father.getMutationProbability()+mother.getMutationProbability())/2);
-            
+            //printS(kid);
             return kid;
+        }
+        
+        private void printS(Schedule s)
+        {
+            HashMap<CourseClass, Timeslot> hash = s.getHash();
+             for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
+                    String day = "";
+                    switch(e.getValue().getDay()) {
+                        case 1: day="Monday";break;
+                        case 2: day="Tuesday";break;
+                        case 3: day="Wednesday";break;
+                        case 4: day="Thursday";break;
+                        case 5: day="Friday";break;
+                    }
+                    int time1 = e.getValue().getStart();
+                    int time2 = e.getValue().getStart() + e.getKey().getDuration();
+
+                    System.out.println("Course Class: " + e.getKey().toString());
+                    System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
+                    System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
+                    System.out.println("    Student Count: " + e.getKey().getStudentNumber());
+                    System.out.println("    Room Capacity: " + e.getValue().getClassroom().getSeats());
+                }
         }
         
         private void mutate(HashMap<CourseClass,Timeslot> kid,double prob)
         {
-        	Chromosome chro = Chromosome.getInstance();
+            Chromosome chro = Chromosome.getInstance();
             if(Math.random()<prob)
             {
-                int mut = (int)Math.random()*(kid.size());
-                int val = (int)Math.random()*(chro.getList().size());
+                int mut = (int)(Math.random()*(kid.size()));
+                int val = (int)(Math.random()*(chro.getList().size()));
                 int i=0;
                 for(Entry<CourseClass,Timeslot> vo : kid.entrySet()){ 
                     if(i==mut)
@@ -92,6 +121,15 @@ public class Generation {
 		return topten;
 	}
 
+    public double getAverage() {
+        double total = 0;
+        double count = scheduleNumber;
+        for(Schedule s: generation) {
+            total += s.getFitness();
+        }
+        return total/count;
+    }
+        
     public ArrayList<Schedule> getGeneration() {
         return generation;
     }
@@ -112,7 +150,7 @@ public class Generation {
 
 class FitnessComparator implements Comparator<Schedule>{
     public int compare(Schedule s1, Schedule s2) {
-        if(s1.getFitness()>s2.getFitness())
+        if(s1.getFitness()<s2.getFitness())
             return 1;
         else if(s1.getFitness()==s2.getFitness())
             return 0;

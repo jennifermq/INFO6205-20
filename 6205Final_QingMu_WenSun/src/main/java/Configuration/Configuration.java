@@ -25,24 +25,42 @@ public class Configuration {
 		CourseClass c2 = new CourseClass(2,"Database",80,3);
 		CourseClass c3 = new CourseClass(3,"Object-Oriented Design",100,3);
 		CourseClass c4 = new CourseClass(4,"Big Data",60,2);
+                CourseClass c5 = new CourseClass(5,"Web Design",80,3);
+                CourseClass c6 = new CourseClass(6,"Web Tools",60,3);
+                CourseClass c7 = new CourseClass(7,"User Experience Design",90,2);
+                CourseClass c8 = new CourseClass(8,"Application Engineering Development",200,3);
+                CourseClass c9 = new CourseClass(9,"Cloud Computing",90,3);
+                CourseClass c10 = new CourseClass(10,"SmartPhone Application Development",50,2);
+                CourseClass c11 = new CourseClass(11,"Lineal Algebra",150,3);
+                CourseClass c12 = new CourseClass(12,"Advanced Mathematics",150,3);
 		school.addCourseClass(c1);
 		school.addCourseClass(c2);
 		school.addCourseClass(c3);
 		school.addCourseClass(c4);
+                school.addCourseClass(c5);
+                school.addCourseClass(c6);
+                school.addCourseClass(c7);
+                school.addCourseClass(c8);
+                school.addCourseClass(c9);
+                school.addCourseClass(c10);
+                school.addCourseClass(c11);
+                school.addCourseClass(c12);
 		
 		Classroom r1 = new Classroom(1,60);
 		Classroom r2 = new Classroom(2,80);
 		Classroom r3 = new Classroom(3,120);
+                Classroom r4 = new Classroom(3,200);
 		school.addClassroom(r1);
 		school.addClassroom(r2);
 		school.addClassroom(r3);
+                school.addClassroom(r4);
 		
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
            
 		
-		Generation g0 = new Generation(10);
-		//g0.setGenerationID(0);
+		Generation g0 = new Generation(100);
+		System.out.println("Generation: " + g0.getGenerationID());
 		for(int i=0; i<g0.getScheduleNumber(); i++) {
 			HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
 			ArrayList<CourseClass> classList = school.getClassList();
@@ -50,8 +68,8 @@ public class Configuration {
 				int randSlot = (int) (Math.random()*chromosome.getList().size());
 				hash.put(course, chromosome.getList().get(randSlot));
 			}
-			double mutationProbability = 0.2;
-			Schedule schedule = new Schedule(hash,10,mutationProbability);
+			double mutationProbability = 0.3;
+			Schedule schedule = new Schedule(hash,2,mutationProbability);
 			//System.out.println(i + ": " + schedule.getFitness());
 			
                         

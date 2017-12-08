@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class School {
 	public static School getInstance(){
         if(school==null){
-            school=new School();           
+            school=new School();     
+            findflag = 0;
         }
         return school;
     }
@@ -33,6 +34,7 @@ public class School {
 	private static School school;
 	private ArrayList<CourseClass> classList;
 	private ArrayList<Classroom> roomList;
+        public static int findflag;
 	
 	private School() {
 		classList = new ArrayList<CourseClass>();
