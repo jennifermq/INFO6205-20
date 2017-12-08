@@ -2,6 +2,7 @@ package Configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import GeneticModel.Chromosome;
 import GeneticModel.Classroom;
@@ -38,18 +39,43 @@ public class Configuration {
 		
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
+           
 		
-		Generation g0 = new Generation(100);
+		Generation g0 = new Generation(10);
 		//g0.setGenerationID(0);
 		for(int i=0; i<g0.getScheduleNumber(); i++) {
 			HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
 			ArrayList<CourseClass> classList = school.getClassList();
 			for(CourseClass course: classList) {
-				int randSlot = (int) Math.random()*classList.size();
-				hash.put(course, Chromosome.getInstance().getList().get(randSlot));
+				int randSlot = (int) (Math.random()*chromosome.getList().size());
+				hash.put(course, chromosome.getList().get(randSlot));
 			}
 			double mutationProbability = 0.2;
-			Schedule schedule = new Schedule(hash,100,mutationProbability);
+			Schedule schedule = new Schedule(hash,10,mutationProbability);
+			//System.out.println(i + ": " + schedule.getFitness());
+			
+                        
+			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
+				String day = "";
+				switch(e.getValue().getDay()) {
+					case 1: day="Monday"; break;
+					case 2: day="Tuesday";break;
+					case 3: day="Wednesday";break;
+					case 4: day="Thursday";break;
+					case 5: day="Friday";break;
+				}
+				int time1 = e.getValue().getStart();
+				int time2 = e.getValue().getStart() + e.getKey().getDuration();
+                                /*
+				System.out.println("Course Class: " + e.getKey().toString());
+				System.out.println("    Time: " + day + "  " + time1 + ":00 - " + time2 + ":00");
+				System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
+                                System.out.println("Student Count: " + e.getKey().getStudentNumber());
+                                System.out.println("Room Capacity: " + e.getValue().getClassroom().getSeats());
+*/
+			}
+			//System.out.println();
+			
 			g0.getGeneration().add(schedule);
 		}
 		return g0;

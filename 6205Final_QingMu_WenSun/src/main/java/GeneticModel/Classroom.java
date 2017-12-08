@@ -7,6 +7,10 @@ public class Classroom
 		this.seats = seats;
 	}
 	
+	public int getRoomID() {
+		return this.roomID;
+	}
+	
 	public int getSeats() {
 		return this.seats;
 	}
