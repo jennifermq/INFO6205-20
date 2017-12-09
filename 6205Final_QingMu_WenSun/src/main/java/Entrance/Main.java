@@ -14,7 +14,7 @@ public class Main {
         while(School.findflag == 0) {
         	Generation nextGeneration = previousGeneration.crossover();
                 System.out.println("Generation: " + nextGeneration.getGenerationID());
-                System.out.println("    Average: " + nextGeneration.getAverage());
+                System.out.println("    Average Fitness: " + nextGeneration.getAverage());
         	previousGeneration = nextGeneration;
         }
         
