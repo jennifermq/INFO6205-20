@@ -16,7 +16,7 @@ public class Generation {
 
 	public Generation crossover() {
             Generation next = new Generation(scheduleNumber);
-            System.out.println("Crossover: " + next.getGenerationID());
+            //System.out.println("Crossover: " + next.getGenerationID());
             ArrayList<Schedule> parents = this.findTopTenPercent();
             //20 kids to be born per pair
             while(next.getGeneration().size()<next.getScheduleNumber())
