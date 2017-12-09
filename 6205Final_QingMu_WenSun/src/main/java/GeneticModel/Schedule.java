@@ -1,11 +1,9 @@
 package GeneticModel;
 
+import Log.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Schedule {
 	public Schedule() {
@@ -46,10 +44,13 @@ public class Schedule {
 		if(slot.getClassroom().getSeats() >= course.getStudentNumber()) {
                     score ++;
 		}
-		else {
-			//System.out.println("Course " + course.getCourseID() + ": Room Capacity violation");
-		}
 		//Seats capability satisfies the demand of the class
+		/*
+		if(slot.getClassroom().getSeats() <= course.getStudentNumber()*3) {
+            score ++;
+}
+*/
+//Seats capability satisfies the demand of the class
 		
                 int samedayflag = 1;
 		int startTime = slot.getStart();
@@ -158,8 +159,8 @@ public class Schedule {
             fitness =  score/highest;
             //System.out.println("    fitness: " + fitness);
             if(score == highest) {
-                System.out.println("Score: " + score + ", Full: " + highest);
-                System.out.println("Fitness:" + fitness);
+                //System.out.println("Score: " + score + ", Full: " + highest);
+                //System.out.println("Fitness:" + fitness);
                 School.findflag = 0;
                 
                 ArrayList<String> Monday = new ArrayList<String>();
@@ -177,53 +178,41 @@ public class Schedule {
                         case 5: Friday.add(printClass(e));break;
                     }
                 }
-                System.out.println("-------------------------\n"+"Monday:"); 
-                logger.info("-------------------------\n"+"Monday:");    //info级别的信息
+                //System.out.println("-------------------------\n"+"Monday:"); 
+                Log.info("\n-------------------------" + "Monday:" + "------------------------------------");    //info级别的信息
                 for(String s : Monday)
                 {
-                    System.out.println(s+"\n");
-                    logger.info(s+"\n");
+                    //System.out.println(s+"\n");
+                	Log.info(s+"\n");
                 }
-                System.out.println("-------------------------\n"+"Tuseday:");
-                logger.info("-------------------------\n"+"Tuseday:");
+                //System.out.println("-------------------------\n"+"Tuseday:");
+                Log.info("-------------------------"+"Tuseday:" + "-------------------------------------");
                 for(String s : Tuesday)
                 {
-                    System.out.println(s+"\n");
-                    logger.info(s+"\n");
+                    //System.out.println(s+"\n");
+                    Log.info(s+"\n");
                 }
-                System.out.println("-------------------------\n"+"Wednesday:");
-                logger.info("-------------------------\n"+"Wednesday:");
+                //System.out.println("-------------------------\n"+"Wednesday:");
+                Log.info("-------------------------"+"Wednesday:" + "-----------------------------------");
                 for(String s : Wednesday)
                 {
-                    System.out.println(s+"\n");
-                    logger.info(s+"\n");
+                    //System.out.println(s+"\n");
+                    Log.info(s+"\n");
                 }
-                System.out.println("-------------------------\n"+"Thursday:");
-                logger.info("-------------------------\n"+"Thursday:");
+                //System.out.println("-------------------------\n"+"Thursday:");
+                Log.info("-------------------------"+"Thursday:" + "------------------------------------");
                 for(String s : Thursday)
                 {
-                    System.out.println(s+"\n");
-                    logger.info(s+"\n");
+                    //System.out.println(s+"\n");
+                    Log.info(s+"\n");
                 }
-                System.out.println("-------------------------\n"+"Friday:");
-                logger.info("-------------------------\n"+"Friday:");
+                //System.out.println("-------------------------\n"+"Friday:");
+                Log.info("-------------------------"+"Friday:" + "--------------------------------------");
                 for(String s : Friday)
                 {
-                    System.out.println(s);
-                    logger.info(s+"\n");
+                    //System.out.println(s);
+                    Log.info(s+"\n");
                 }
-            /*
-            System.out.println();
-            System.out.println("-------------------------");
-            for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
-                int endTime = e.getValue().getStart()+e.getKey().getDuration();
-                    System.out.println("Course Class: " + e.getKey().toString());
-                    System.out.println("    Time: " + e.getValue().getDay() + "  " + e.getValue().getStart() + ":00 - " +  endTime + ":00");
-                    System.out.println("    Location: " + "Room " + e.getValue().getClassroom().getRoomID());
-                    System.out.println("    Student Count: " + e.getKey().getStudentNumber());
-                    System.out.println("    Room Capacity: " + e.getValue().getClassroom().getSeats());
-            }
-*/ 
             System.exit(0);
         }
     }
@@ -251,8 +240,7 @@ public class Schedule {
 	private int crossoverPoints;
 	private double mutationProbability;
 	private double fitness;
-	private HashMap<CourseClass,Timeslot> hash; //key:CourseClass;value:Timeslot
-	private static Logger logger = LogManager.getLogger(Schedule.class.getName());
+	private HashMap<CourseClass,Timeslot> hash;
 	public double getFitness() {
             return this.fitness;
 	}

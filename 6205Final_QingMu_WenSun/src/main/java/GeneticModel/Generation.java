@@ -121,7 +121,7 @@ public class Generation {
 		return topten;
 	}
 
-    public double getAverage() {
+    public double getAverageFitness() {
         double total = 0;
         double count = scheduleNumber;
         for(Schedule s: generation) {
@@ -129,7 +129,16 @@ public class Generation {
         }
         return total/count;
     }
-        
+    
+    public double getAverageMutationProbability( ) {
+    	double total = 0;
+        double count = scheduleNumber;
+        for(Schedule s: generation) {
+            total += s.getMutationProbability();
+        }
+        return total/count;
+    }
+    
     public ArrayList<Schedule> getGeneration() {
         return generation;
     }
