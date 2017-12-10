@@ -16,6 +16,10 @@ public class CourseClass {
 		return this.duration;
 	}
 	
+	public int getCourseID() {
+		return this.classID;
+	}
+	
 	@Override
 	public String toString() {
 		return this.className;
