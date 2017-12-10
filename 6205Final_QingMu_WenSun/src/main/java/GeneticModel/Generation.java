@@ -33,7 +33,7 @@ public class Generation {
         return next;
     }
 
-    public Schedule crossover(ArrayList<Schedule> parents,int f,int m)
+    private Schedule crossover(ArrayList<Schedule> parents,int f,int m)
     {
         School school = School.getInstance();
         Schedule father = parents.get(f);
