@@ -161,7 +161,6 @@ public class Schedule {
             if(score == highest) {
                 //System.out.println("Score: " + score + ", Full: " + highest);
                 //System.out.println("Fitness:" + fitness);
-                School.findflag = 0;
                 
                 ArrayList<String> Monday = new ArrayList<String>();
                 ArrayList<String> Tuesday = new ArrayList<String>();
@@ -179,6 +178,7 @@ public class Schedule {
                     }
                 }
                 //System.out.println("-------------------------\n"+"Monday:"); 
+                Log.info("\nSolution Found!");
                 Log.info("\n-------------------------" + "Monday:" + "------------------------------------");    //info级别的信息
                 for(String s : Monday)
                 {
@@ -217,33 +217,35 @@ public class Schedule {
         }
     }
 	
-        private String printClass(Entry<CourseClass, Timeslot> e)
-        {
-            String day = "";
-            switch(e.getValue().getDay()) {
-                        case 1: day="Monday";break;
-                        case 2: day="Tuesday";break;
-                        case 3: day="Wednesday";break;
-                        case 4: day="Thursday";break;
-                        case 5: day="Friday";break;
-                    }
-            int time1 = e.getValue().getStart();
-            int time2 = e.getValue().getStart() + e.getKey().getDuration();
-            String s ="Course Class: " + e.getKey().toString()+"\n"+
-                    "    Time: " + time1 + ":00 - " + time2 + ":00"+"\n"+
-                    "    Location: " + "Room " + e.getValue().getClassroom().getRoomID()+"\n"+
-                    "    Student Count: " + e.getKey().getStudentNumber()+"\n"+
-                    "    Room Capacity: " + e.getValue().getClassroom().getSeats();
-            return s;
+    private String printClass(Entry<CourseClass, Timeslot> e)
+    {
+        String day = "";
+        switch(e.getValue().getDay()) {
+            case 1: day="Monday";break;
+            case 2: day="Tuesday";break;
+            case 3: day="Wednesday";break;
+            case 4: day="Thursday";break;
+            case 5: day="Friday";break;
         }
+        int time1 = e.getValue().getStart();
+        int time2 = e.getValue().getStart() + e.getKey().getDuration();
+        String s ="Course Class: " + e.getKey().toString()+"\n"+
+                "    Time: " + time1 + ":00 - " + time2 + ":00"+"\n"+
+                "    Location: " + "Room " + e.getValue().getClassroom().getRoomID()+"\n"+
+                "    Student Count: " + e.getKey().getStudentNumber()+"\n"+
+                "    Room Capacity: " + e.getValue().getClassroom().getSeats();
+        return s;
+    }
+
+    public double getFitness() {
+        return this.fitness;
+    }
         
-	private int crossoverPoints;
-	private double mutationProbability;
-	private double fitness;
-	private HashMap<CourseClass,Timeslot> hash;
-	public double getFitness() {
-            return this.fitness;
-	}
+    private int crossoverPoints;
+    private double mutationProbability;
+    private double fitness;
+    private HashMap<CourseClass,Timeslot> hash;
+	
 	
 	
 }
