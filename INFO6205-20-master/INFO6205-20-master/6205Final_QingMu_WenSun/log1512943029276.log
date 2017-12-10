@@ -1,0 +1,180 @@
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 0 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.6963333333333332 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.40009833804858874 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 1 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.75 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.37257833105344107 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 2 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.7924999999999995 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.37551240532426255 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 3 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.8233333333333333 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3845748956364401 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 4 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.8561666666666671 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.369928824780372 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 5 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.8856666666666675 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3616276872123428 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 6 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.8975 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.36617470292004173 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 7 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9185000000000006 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.36742312243727054 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 8 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9200000000000004 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3676749845593105 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 9 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9273333333333343 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.36817446411171334 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 10 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9425000000000016 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682691203816743 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 11 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9438333333333344 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.36828164925525736 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 12 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9518333333333342 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682956100001062 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 13 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9586666666666676 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682955205081517 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 14 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.958000000000001 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682954310161977 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 15 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9581666666666675 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.36829500592941516 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 16 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9610000000000006 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682954086432088 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Generation: 17 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Fitness: 0.9770000000000009 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO     Average Mutation Probability: 0.3682937698217989 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO 
+-------------------------Monday:------------------------------------ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: SmartPhone Application Development
+    Time: 17:00 - 19:00
+    Location: Room 2
+    Student Count: 50
+    Room Capacity: 80
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Web Tools
+    Time: 10:00 - 13:00
+    Location: Room 3
+    Student Count: 60
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Web Design
+    Time: 16:00 - 19:00
+    Location: Room 3
+    Student Count: 80
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO -------------------------Tuseday:------------------------------------- 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Software Quality Control
+    Time: 14:00 - 17:00
+    Location: Room 2
+    Student Count: 50
+    Room Capacity: 80
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Algorithm
+    Time: 17:00 - 19:00
+    Location: Room 2
+    Student Count: 50
+    Room Capacity: 80
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Cloud Computing - Session 1
+    Time: 15:00 - 18:00
+    Location: Room 3
+    Student Count: 90
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Advanced Mathematics - Session 1
+    Time: 12:00 - 15:00
+    Location: Room 3
+    Student Count: 150
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Database
+    Time: 10:00 - 13:00
+    Location: Room 2
+    Student Count: 80
+    Room Capacity: 80
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO -------------------------Wednesday:----------------------------------- 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Application Engineering Development - session1
+    Time: 9:00 - 12:00
+    Location: Room 3
+    Student Count: 200
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Concurrent and Parallel Programming
+    Time: 18:00 - 21:00
+    Location: Room 2
+    Student Count: 60
+    Room Capacity: 80
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Linear Algebra - Session 1
+    Time: 14:00 - 17:00
+    Location: Room 3
+    Student Count: 150
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Data Warehousing and Business Intelligence
+    Time: 17:00 - 20:00
+    Location: Room 3
+    Student Count: 100
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO -------------------------Thursday:------------------------------------ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Business Analysis and Information Engineering
+    Time: 12:00 - 14:00
+    Location: Room 3
+    Student Count: 100
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Cloud Computing - Session 2
+    Time: 16:00 - 19:00
+    Location: Room 3
+    Student Count: 90
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Linear Algebra - Session 2
+    Time: 8:00 - 11:00
+    Location: Room 3
+    Student Count: 150
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO -------------------------Friday:-------------------------------------- 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Application Engineering Development - session2
+    Time: 18:00 - 21:00
+    Location: Room 3
+    Student Count: 200
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Advanced Mathematics - Session 2
+    Time: 11:00 - 14:00
+    Location: Room 3
+    Student Count: 150
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: User Experience Design
+    Time: 8:00 - 10:00
+    Location: Room 3
+    Student Count: 90
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Object-Oriented Design
+    Time: 15:00 - 18:00
+    Location: Room 3
+    Student Count: 100
+    Room Capacity: 200
+ 
+2017-12-10 16:57:09  class:Log.Log info Log.Log INFO Course Class: Big Data
+    Time: 19:00 - 21:00
+    Location: Room 1
+    Student Count: 60
+    Room Capacity: 60
+ 
