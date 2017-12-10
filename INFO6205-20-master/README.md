@@ -1,9 +1,10 @@
 # INFO6205-20
-#
+#  
 	In this project, we were trying to implement a course scheduling application  
-trough genetic algorithm. In this project we are able to put intended courses   
-into proper timeslots and classrooms.  
+	trough genetic algorithm. In this project we are able to put intended courses   
+	into proper timeslots and classrooms.  
 -----------------------------------------------------------------------------  
+-----------------------------------------------------------------------------
 Input:  
 Classroom: classroom number, number of seats  
 Course: course name, number of students, duration  
