@@ -16,17 +16,16 @@ import static org.junit.Assert.assertFalse;
 
 public class FitnessTest{
 	
-	@Test
-    public void testFind0() {
+    @Test
+    public void testFitness0() {
         School school = School.getInstance();
         
         CourseClass c1 = new CourseClass(1,"Algorithm",50,2);
         school.addCourseClass(c1);
         
         Classroom r1 = new Classroom(1,40);
-		school.addClassroom(r1);
-		
-		Chromosome chro = Chromosome.getInstance();
+        school.addClassroom(r1);
+        Chromosome chro = Chromosome.getInstance();
         chro.setList();
 
         HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
@@ -38,8 +37,8 @@ public class FitnessTest{
         assertEquals(0.333333333, schedule.getFitness(),1.0E-7);
     }
 	
-	@Test
-    public void testFind1() {
+    @Test
+    public void testFitness1() {
         School school = School.getInstance();
         
         CourseClass c1 = new CourseClass(1,"Algorithm",50,2);
@@ -48,9 +47,8 @@ public class FitnessTest{
         school.addCourseClass(c2);
         
         Classroom r1 = new Classroom(1,40);
-		school.addClassroom(r1);
-		
-		Chromosome chro = Chromosome.getInstance();
+        school.addClassroom(r1);
+        Chromosome chro = Chromosome.getInstance();
         chro.setList();
 
         HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
@@ -65,7 +63,7 @@ public class FitnessTest{
     }
 	
     @Test
-    public void testFind2() {
+    public void testFitness2() {
         School school = School.getInstance();
         
         CourseClass c1 = new CourseClass(1,"Algorithm",50,2);
@@ -78,9 +76,8 @@ public class FitnessTest{
         school.addCourseClass(c4);
         
         Classroom r1 = new Classroom(3,80);
-		school.addClassroom(r1);
-		
-		Chromosome chro = Chromosome.getInstance();
+        school.addClassroom(r1);
+        Chromosome chro = Chromosome.getInstance();
         chro.setList();
 
         HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
@@ -99,7 +96,7 @@ public class FitnessTest{
     }
     
     @Test
-    public void testFind3() {
+    public void testFitness3() {
         School school = School.getInstance();
         
         CourseClass c1 = new CourseClass(1,"Algorithm",50,4);
@@ -108,9 +105,8 @@ public class FitnessTest{
         school.addCourseClass(c2);
         
         Classroom r1 = new Classroom(3,30);
-		school.addClassroom(r1);
-		
-		Chromosome chro = Chromosome.getInstance();
+        school.addClassroom(r1);
+        Chromosome chro = Chromosome.getInstance();
         chro.setList();
 
         HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();

@@ -93,7 +93,6 @@ public class Configuration {
 			double mutationProbability = 0.3 + Math.random()*0.2;
 			Schedule schedule = new Schedule(hash,2,mutationProbability);
 			//System.out.println(i + ": " + schedule.getFitness());
-			
                         
 			for(Entry<CourseClass, Timeslot> e : hash.entrySet()) {
 				String day = "";
