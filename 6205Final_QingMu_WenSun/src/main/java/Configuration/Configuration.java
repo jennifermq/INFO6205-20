@@ -11,9 +11,9 @@ import GeneticModel.Generation;
 import GeneticModel.Schedule;
 import GeneticModel.School;
 import GeneticModel.Timeslot;
+import Log.Log;
 
 public class Configuration {
-	//在第一代中随机产生一个schedule的时候，相当于是遍历每一门课然后给这门课分配duration个连续的slot。
 	public Configuration() {
 		
 	}
@@ -69,19 +69,20 @@ public class Configuration {
 		
 		Classroom r1 = new Classroom(1,60);
 		Classroom r2 = new Classroom(2,80);
-		//Classroom r3 = new Classroom(3,120);
-                Classroom r4 = new Classroom(4,200);
+                Classroom r3 = new Classroom(3,200);
+                //Classroom r4 = new Classroom(4,120);
 		school.addClassroom(r1);
 		school.addClassroom(r2);
-		//school.addClassroom(r3);
-                school.addClassroom(r4);
+                school.addClassroom(r3);
+                //school.addClassroom(r4);
 		
 		Chromosome chromosome = Chromosome.getInstance();
 		chromosome.setList();
            
 		
 		Generation g0 = new Generation(100);
-		System.out.println("Generation: " + g0.getGenerationID());
+		//System.out.println("Generation: " + g0.getGenerationID());
+		Log.info("Generation: " + g0.getGenerationID());
 		for(int i=0; i<g0.getScheduleNumber(); i++) {
 			HashMap<CourseClass,Timeslot> hash = new HashMap<CourseClass,Timeslot>();
 			ArrayList<CourseClass> classList = school.getClassList();
@@ -89,7 +90,7 @@ public class Configuration {
 				int randSlot = (int) (Math.random()*chromosome.getList().size());
 				hash.put(course, chromosome.getList().get(randSlot));
 			}
-			double mutationProbability = 0.35;
+			double mutationProbability = 0.3 + Math.random()*0.2;
 			Schedule schedule = new Schedule(hash,2,mutationProbability);
 			//System.out.println(i + ": " + schedule.getFitness());
 			
@@ -109,6 +110,11 @@ public class Configuration {
 			
 			g0.getGeneration().add(schedule);
 		}
+
+		//System.out.println("    Average Fitness: " + g0.getAverageFitness());
+		Log.info("    Average Fitness: " + g0.getAverageFitness());
+		//System.out.println("    Average Mutation Probability: " + g0.getAverageMutationProbability());
+		Log.info("    Average Mutation Probability: " + g0.getAverageMutationProbability());
 		return g0;
 	}
 }
